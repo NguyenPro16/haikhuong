@@ -89,7 +89,7 @@ var water;
 database.ref("Control/VIRTUAL OV VALVE/data").on("value", function (snapshot) {
   water = snapshot.val();
   if (water == 1)
-  document.getElementById("dong-chay").src ="img/dongchaynuoc.gif"
+  document.getElementById("dong-chay").src ="hinh/dongchaynuoc.gif"
   else document.getElementById("dong-chay").src =""
 });
 
@@ -104,13 +104,13 @@ database.ref("Monitor/CPS-A/data").on("value", function(snapshot){
   if (pres > 20 && pres < 30) 
     {
       pres_ss.innerHTML = "Bộ lọc bị bụi nhẹ !";
-      frame_thongbao.src = "img/chat.png";
+      frame_thongbao.src = "hinh/chat.png";
     }
   else 
   if (pres > 30 && pres > 20) 
     {
       pres_ss.innerHTML = "Bộ lọc bị bụi nặng !";
-      frame_thongbao.src = "img/chat.png";
+      frame_thongbao.src = "hinh/chat.png";
     }
   else {
           pres_ss.innerHTML = "";
@@ -160,14 +160,14 @@ database.ref("Control/O ENABLE/data").on("value", function(snapshot){
   document.getElementById("read").innerHTML = mode;
   if (mode == 0) 
     {
-      document.getElementById("image-status-fan").src = "img/fan speed high.gif";
-      document.getElementById("flow").src = "img/flow.gif";
+      document.getElementById("image-status-fan").src = "hinh/fan speed high.gif";
+      document.getElementById("flow").src = "hinh/flow.gif";
       // database.ref("Control/O VALUE/data").on("value", function(snapshot1){
       //   var mode = snapshot1.val();
       //   document.getElementById("read1").innerHTML = mode;
       // })
-      document.getElementById('lock').src="img/padlock.png";
-      document.getElementById('lock2').src="img/padlock.png";
+      document.getElementById('lock').src="hinh/padlock.png";
+      document.getElementById('lock2').src="hinh/padlock.png";
       document.getElementById("btn-fan").disabled = true;
       document.getElementById("btn-coil").disabled = true;
       document.getElementById("myCheck").checked = true;
@@ -195,12 +195,12 @@ var img2 = document.getElementById("img-van2");
 database.ref("Control/VIRTUAL OV VALVE/data").on("value", function(snapshot){
   var led_valve = snapshot.val();
   if(led_valve==1){
-    document.getElementById("img-van1").src ="img/led-on.png"
-    document.getElementById("img-van2").src ="img/led-on.png"
+    document.getElementById("img-van1").src ="hinh/led-on.png"
+    document.getElementById("img-van2").src ="hinh/led-on.png"
     }
   else{
-      document.getElementById("img-van1").src ="img/led-off.png"
-       document.getElementById("img-van2").src ="img/led-off.png"
+      document.getElementById("img-van1").src ="hinh/led-off.png"
+       document.getElementById("img-van2").src ="hinh/led-off.png"
       }
 })
 
@@ -254,7 +254,7 @@ database.ref("Control/ON OFF THERMOSTAT/data").on("value", function(snapshot){
   if (thermosonoff == 0) 
     {
       document.getElementById("imageCheckbox-thermostat").checked = false;
-      document.getElementById('checkboxImage-thermostat').src="img/THERMOS-OFF.png";
+      document.getElementById('checkboxImage-thermostat').src="hinh/THERMOS-OFF.png";
       document.getElementById("myCheck").disabled= false;
       // document.getElementById("myCheck").checked = true;
       document.getElementById('lock1').src="";
@@ -265,9 +265,9 @@ database.ref("Control/ON OFF THERMOSTAT/data").on("value", function(snapshot){
     }
   else if (thermosonoff == 1)
     {
-      document.getElementById('lock1').src="img/padlock.png";
+      document.getElementById('lock1').src="hinh/padlock.png";
       document.getElementById("imageCheckbox-thermostat").checked = true;
-      document.getElementById('checkboxImage-thermostat').src="img/THERMOS-ON.png";
+      document.getElementById('checkboxImage-thermostat').src="hinh/THERMOS-ON.png";
       document.getElementById("myCheck").checked = false;
       document.getElementById("myCheck").disabled= true;
       document.getElementById("run-thuan").disabled= true;
@@ -412,12 +412,12 @@ function toggleImage() {
   var image = document.getElementById('checkboxImage-thermostat');
   // var div = document.getElementById('bot-ma');
   if (checkbox_thermostat.checked) {
-      image.src = "img/THERMOS-ON.png";
+      image.src = "hinh/THERMOS-ON.png";
       // document.getElementById("btn-coil").disabled = true;
       document.getElementById("btn-fan").disabled = true;
       database.ref("Control/ON OFF THERMOSTAT").update({"data" : 1});
-      document.getElementById('lock').src="img/padlock.png";
-      // document.getElementById('lock1').src="/img/padlock.png";
+      document.getElementById('lock').src="hinh/padlock.png";
+      // document.getElementById('lock1').src="/hinh/padlock.png";
       document.getElementById("submit-setpoint").disabled = true;
       document.getElementById("submit-setpoint").disabled = true;
       // document.getElementById("myCheck").disabled=true;
@@ -432,14 +432,14 @@ function toggleImage() {
       // var status_thermos_img = document.getElementById('status-thermos');
       database.ref("Control/STATUS/data").on("value", function (snapshot) {
         status_thermos = snapshot.val();
-        if(status_thermos==2) document.getElementById('status-thermos').src="img/thermostat status.png";
-          else if(status_thermos==1) document.getElementById('status-thermos').src="img/thermostat status1.png" ;
-          else if(status_thermos==0) document.getElementById('status-thermos').src="img/thermostat status2.png";
-          else if(status_thermos==3) document.getElementById('status-thermos').src="img/thermostat status3.png";
+        if(status_thermos==2) document.getElementById('status-thermos').src="hinh/thermostat status.png";
+          else if(status_thermos==1) document.getElementById('status-thermos').src="hinh/thermostat status1.png" ;
+          else if(status_thermos==0) document.getElementById('status-thermos').src="hinh/thermostat status2.png";
+          else if(status_thermos==3) document.getElementById('status-thermos').src="hinh/thermostat status3.png";
           
       });
   } else {
-      image.src = "img/THERMOS-OFF.png";
+      image.src = "hinh/THERMOS-OFF.png";
       document.getElementById("btn-fan").disabled = false;
       database.ref("Control/ON OFF THERMOSTAT").update({"data" : 0});
       document.getElementById('lock').src="";
@@ -456,12 +456,12 @@ function toggleImage() {
 //   var checkbox_thermostat = document.getElementById('imageCheckbox-thermostat1');
 //   var image = document.getElementById('checkboxImage-thermostat1');
 //   if (checkbox_thermostat.checked) {
-//       image.src = "/img/THERMOS-ON.png";
+//       image.src = "/hinh/THERMOS-ON.png";
 //       database.ref("Control/ON OFF THERMOSTAT").update({"data" : 1});
       
 //       }
 //    else {
-//       image.src = "/img/THERMOS-OFF.png";
+//       image.src = "/hinh/THERMOS-OFF.png";
 //       document.getElementById("btn-fan").disabled = false;
 //       database.ref("Control/ON OFF THERMOSTAT").update({"data" : 0});
 //       document.getElementById('lock').src="";
@@ -487,12 +487,12 @@ function fan(){
               document.getElementById("read2").innerHTML = runCmData;
               if ((frqData > 0 && runCmData > 0) ||(frqData > 0 && thermosc > 0))
                 {
-                  document.getElementById("image-status-fan").src = "img/fan speed high.gif";
-                  document.getElementById("flow").src = "img/flow.gif";
+                  document.getElementById("image-status-fan").src = "hinh/fan speed high.gif";
+                  document.getElementById("flow").src = "hinh/flow.gif";
                 }
               else if (frqData == 0 || runCmData == 0 || thermosc == 0 )
                 {
-                  document.getElementById("image-status-fan").src = "img/fan.png";
+                  document.getElementById("image-status-fan").src = "hinh/fan.png";
                   document.getElementById("flow").src = "";
                 }
           })}
